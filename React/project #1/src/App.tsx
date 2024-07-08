@@ -26,11 +26,11 @@ const App = () => {
   
   const changeBalanceTake = async(newBalance: number,count: number, type: string) =>{
     try {
-      const {data} = await axios.post(`https://237b95a84c86097c.mokky.dev/information`,{
+      const {data} = await axios.post(`api`,{
         balance: newBalance
       });
       if(data){
-        const {data} = await axios.post('https://237b95a84c86097c.mokky.dev/operations',{
+        const {data} = await axios.post('api',{
           id: Date.now(),
           type: type,
           money: count
@@ -66,11 +66,11 @@ const App = () => {
     
   const changeBalanceDeposit = async(newBalance: number, count: number, type: string) =>{
     try {
-      const {data} = await axios.post(`https://237b95a84c86097c.mokky.dev/information`,{
+      const {data} = await axios.post(`api`,{
         balance: newBalance
       });
       if(data){
-        const {data} = await axios.post('https://237b95a84c86097c.mokky.dev/operations',{
+        const {data} = await axios.post('api',{
           id: Date.now(),
           type: type,
           money: count
