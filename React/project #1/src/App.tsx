@@ -46,11 +46,11 @@ const App = () => {
     
   const changeBalanceTransfer = async(newBalance: number,count: number, type: string) =>{
     try {
-      const {data} = await axios.post(`https://237b95a84c86097c.mokky.dev/information`,{
+      const {data} = await axios.post(`api`,{
         balance: newBalance
       });
       if(data){
-        const {data} = await axios.post('https://237b95a84c86097c.mokky.dev/operations',{
+        const {data} = await axios.post('api',{
           id: Date.now(),
           type: type,
           money: count
@@ -150,7 +150,7 @@ const App = () => {
   const fetchInformation = async () => {
     try {
 
-      const response = await axios.get('https://237b95a84c86097c.mokky.dev/information/1');
+      const response = await axios.get('api');
       setUser(response.data);
  
     } catch (error) {
@@ -162,7 +162,7 @@ const App = () => {
 
   const fetchData = async() =>{
     try {
-      const {data} = await axios.get('https://237b95a84c86097c.mokky.dev/operations');
+      const {data} = await axios.get('api');
       setOperations(() => [...data])
     } catch (error) {
       toast.warn(`Произошла ошибка: ${error}`);
