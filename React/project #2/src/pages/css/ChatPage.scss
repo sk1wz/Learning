@@ -1,0 +1,30 @@
+@import '../../assets/Variables.scss';
+
+.ChatPage{
+    width: 100%;
+    position: relative;
+    height: 100%;
+    display: flex;
+    
+}
+
+.left{
+    flex: 1;
+    display: flex;
+    border-right: 1px solid $bg-color-2;
+    
+}
+
+.right{
+    width: 100%;
+    flex: 2;
+    display: flex;
+    
+}
+
+.centerNado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
