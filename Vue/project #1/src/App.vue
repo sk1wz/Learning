@@ -26,7 +26,7 @@ const procentPrice = computed(
 // ------Функции------
 const createOrder = async() =>{
   try{
-    const {data} = await axios.post('https://45fb72d64cf3f4c5.mokky.dev/orders',{
+    const {data} = await axios.post('api',{
       items: cart.value,
       totalPrice: totalPrice.value,
     });
@@ -78,7 +78,7 @@ const onChangeInput = (event) => {
 // Поиск items в favorites
 const findFavorites = async () =>{
   try{
-    const { data: favorites } = await axios.get('https://45fb72d64cf3f4c5.mokky.dev/favorites');
+    const { data: favorites } = await axios.get('api');
     items.value = items.value.map(item =>{
       const favorite = favorites.find(favorite => favorite.parentId === item.id)
       if(!favorite){
@@ -108,12 +108,12 @@ const addToFavorite = async (item) =>{
         parentId: item.id
       };
       item.isFavorite = true;
-      const {data} = await axios.post('https://45fb72d64cf3f4c5.mokky.dev/favorites', obj);
+      const {data} = await axios.post('api', obj);
       item.favoriteId = data.id;
     
      }else {
       item.isFavorite = false;
-      await axios.delete(`https://45fb72d64cf3f4c5.mokky.dev/favorites/${item.favoriteId}`)
+      await axios.delete(`api/${item.favoriteId}`)
       item.favoriteId = null;
       
     }
@@ -134,7 +134,7 @@ const findItems = async () => {
       params.title = `*${filters.searchQuery}*`;
     }
 
-    const { data } = await axios.get('https://45fb72d64cf3f4c5.mokky.dev/items', { params });
+    const { data } = await axios.get('api', { params });
     items.value = data.map(obj => ({
       ...obj,
       isFavorite: false,
