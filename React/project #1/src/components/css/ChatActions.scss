@@ -1,0 +1,47 @@
+@import "../../assets/Variables.scss";
+.chats__actions{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+  
+
+    &__find{
+        display: flex;
+        position: relative;
+      
+        
+        input{
+            background-color: $bg-color-2;
+            padding: 8px 20px 8px 28px;
+            outline: none;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            color: $text-color-white;
+        }
+        input::placeholder{
+            color: $text-color-white;
+
+        }
+        i{
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            color: $text-color-white;
+        }
+    }
+    &__add{
+        i{
+            font-size: 20px;
+            background-color: $bg-color-2;
+            padding: 5px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}

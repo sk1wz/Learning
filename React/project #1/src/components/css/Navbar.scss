@@ -1,0 +1,210 @@
+@import "../../assets/Variables.scss";
+
+.navbar{
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    background-color: rgba(59, 59, 237,0.9);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 50;
+    animation: close .5s forwards;
+
+    
+}
+
+.navbar.open{
+    animation: open .5s forwards;
+}
+
+.navbar__top{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    position: relative;
+
+    &__logotype{
+        display: flex;
+        flex-direction: column;
+
+        h1{
+            color: $text-color-white;
+        }
+
+        span{
+            color: $text-color-gray;
+            font-size: 10px;
+    
+        }
+    }
+    &__info{
+        padding-top: 20px;
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        h5{
+            color: $text-color-white;
+            span{
+                padding-right: 5%;
+                color: $text-color-gray;
+                
+            }
+        }
+    }
+
+    button{
+        width: 50px;
+        height: 50px;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 30px;
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        cursor: pointer;
+        color: $text-color-white;
+    }
+  
+    
+}
+
+.navbar__center{
+    flex: 2;
+    display: flex;
+    height: auto;
+    
+    
+    ul{
+        padding: 15px;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+
+        li{
+            font-size: 18px;
+            color: $text-color-white;
+           
+            li:hover,
+            li:hover i{
+                transition: all .5s;
+                color: aliceblue;
+               
+            }
+        }
+     
+
+    }
+    
+}
+
+.navbar__hidden{
+    flex: 3;
+    display: flex;
+}
+
+.navbar__bottom{
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: auto;
+    position: absolute;
+    bottom: 30px;
+
+    &__question__items{
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h4{
+            color: $text-color-white;
+        }
+        a{
+            font-size: 14px;
+            font-weight: 550;
+            color: $text-color-gray;    
+        
+            i{
+                font-weight: 550;
+                font-size: 16px;
+                
+            }
+        }
+        a{
+            color: $text-color-white;
+        }
+        a:hover,
+        a:hover i{
+            transition: all .5s;
+            color: aliceblue;
+            animation: swing .5s forwards;
+        }
+        
+    }
+
+    &__btns{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h4{
+            padding-block-end: 10px;
+            padding-top: 30px;
+            color: $text-color-white;
+        }
+        a{
+            color: $text-color-white;
+        }
+        a:hover,
+        a:hover i{
+            transition: all .5s;
+            color: aliceblue;
+            animation: swing .5s forwards;
+        }
+    }
+
+}
+
+
+
+
+
+
+// keyFrames
+@keyframes swing {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+@keyframes close{
+    0%{
+        left:(0px);
+    }
+    100%{
+        left:(-180px);
+    }
+}
+
+@keyframes open{
+    0%{
+        left:(-180px);
+    }
+  
+    100%{
+        left:(0px);
+    }
+}
